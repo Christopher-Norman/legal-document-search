@@ -9,6 +9,7 @@ packages = [{include = "legal_document_search"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 pre-commit = "^3.3.3"
+pymilvus = "^2.2.13"
 
 
 [build-system]

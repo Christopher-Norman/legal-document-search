@@ -53,6 +53,14 @@ pre-commit install
 
 ## Setting up the infrastructure
 
+### Infrastructure stack
+
+On Azure we deploy:
+- Resource group: to contain all infrastructure resources
+- Storage account: to store all data
+- Azure Kubernetes Service: Hosted Kubernetes service on Azure
+- Milvus: Vector database hosted on Kubernetes
+
 ## Adding new data
 
 ## Accessing data search
