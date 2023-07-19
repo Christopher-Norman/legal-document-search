@@ -1,6 +1,8 @@
+resource "random_pet" "prefix" {}
+
 resource "azurerm_storage_account" "storage_account" {
     resource_group_name = var.resource_group_name
-    name                = var.name
+    name                = "${random_pet.prefix.id}-stacc"
     location            = var.location
 
     account_tier                    = "Standard"
@@ -13,7 +15,7 @@ resource "azurerm_storage_account" "storage_account" {
 
 # Storage container inside storage account
 resource "azurerm_storage_container" "data_store" {
-    name                  = var.container_name
+    name                  = "legaldata-stc"
     storage_account_name  = azurerm_storage_account.storage_account.name
     container_access_type = "container"
 }
