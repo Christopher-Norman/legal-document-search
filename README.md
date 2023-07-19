@@ -11,9 +11,47 @@ This project enables collaborative sharing and search of legal documents within 
 
 # Getting Started
 
-### Requirements
+### Developer Requirements
 
-## Setting up infrastructure
+* Python
+* [Poetry](https://python-poetry.org/)
+* [PyEnv](https://github.com/pyenv/pyenv)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+* [Docker](https://docs.docker.com/engine/install/)
+* [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)
+* [Azure Account](https://azure.microsoft.com/en-gb)
+
+**Setup**
+
+Use PyEnv to install the correct Python version:
+
+```bash
+pyenv install 3.10.5
+pyenv local 3.10.5
+```
+
+Set up Poetry:
+
+```bash
+poetry env use 3.10.5
+poetry install
+```
+
+Enter the Poetry shell:
+
+```bash
+poetry shell
+```
+
+**Pre-commit checks**
+
+Install the git hook scripts
+
+```bash
+pre-commit install
+```
+
+## Setting up the infrastructure
 
 ## Adding new data
 
