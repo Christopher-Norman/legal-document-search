@@ -51,7 +51,7 @@ Install the pre-commit Git hooks
 pre-commit install
 ```
 
-## Setting up the infrastructure
+## Infrastructure
 
 ### Infrastructure stack
 
@@ -59,7 +59,53 @@ On Azure we deploy:
 - Resource group: to contain all infrastructure resources
 - Storage account: to store all data
 - Azure Kubernetes Service: Hosted Kubernetes service on Azure
+- Azure Container Registry: A container registry hosted on Azure
 - Milvus: Vector database hosted on Kubernetes
+
+### Setting up the infrastructure
+
+To deploy these resources to Azure, navigate to the `infrastructure` directory and run the following commands:
+
+```bash
+terraform init
+```
+
+
+```bash
+terraform apply
+```
+
+The apply step may take up to 10 minutes due to the deployment of the Azure Kubernetes Service (AKS) and services on top of that.
+
+### Deploy the application
+
+On top of Kubernetes we also deploy our FastAPI application. This interfaces with the vector database, abstracting away the commands for adding data and retrieving data.
+
+To deploy this we create a Docker image and push it to the Azure Container Registry.
+
+```bash
+docker build -t
+```
+
+```bash
+docker push
+```
+
+Navigate back to the root directory of this repository then run:
+
+```bash
+kubectl apply -f kubernetes/
+```
+
+Which will deploy all the required containers on the AKS cluster.
+
+To get the endpoint of the FastAPI server you can run:
+
+```bash
+kubectl get services
+```
+
+And find the corresponding service and external IP for the server.
 
 ## Adding new data
 

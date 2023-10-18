@@ -26,6 +26,14 @@ module "azurerm_kubernetes_cluster" {
     location = var.location
 }
 
+module "acr" {
+  source = "./azure_container_registry"
+
+  resource_group_name = module.resource_group.name
+  location            = var.location
+  aks_object_id       = module.aks.aks_object_id
+}
+
 module "milvus" {
     source = "./milvus"
 
