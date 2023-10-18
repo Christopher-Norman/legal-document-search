@@ -18,5 +18,15 @@ output "storage_account_name" {
 
 output "kubernetes_cluster_name" {
   description = "The Kubernetes cluster name"
-  value = module.azurerm_kubernetes_cluster.kubernetes_cluster_name
+  value = module.azurerm_kubernetes_cluster.aks_cluster_name
+}
+
+output "container_registry_url" {
+  description = "The URL used to log into the container registry"
+  value = module.acr.container_registry_url
+}
+
+output "container_registry_name" {
+  description = "The name of the container registry"
+  value = module.acr.container_registry_name
 }
